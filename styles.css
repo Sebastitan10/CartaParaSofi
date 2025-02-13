@@ -1,0 +1,94 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffebee;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Contenedor del sobre */
+.container {
+    position: relative;
+    width: 320px;
+    height: 250px;
+    cursor: pointer;
+}
+
+/* Sobre cerrado */
+.sobre {
+    width: 100%;
+    height: 100%;
+    background: red;
+    position: absolute;
+    bottom: 0;
+    border-radius: 10px;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mensaje en el sobre */
+.sobre p {
+    margin: 5px 0;
+}
+
+/* Tapa del sobre */
+.tapa {
+    width: 100%;
+    height: 50%;
+    background: darkred;
+    position: absolute;
+    top: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Carta con más espacio */
+.carta {
+    width: 90%;
+    height: 85%;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.8s ease-in-out, opacity 0.5s ease-in-out;
+    overflow-y: auto; /* Permite hacer scroll si el texto es largo */
+}
+
+/* Para que el texto no se salga */
+.carta p {
+    font-size: 14px;
+    margin: 5px 0;
+    word-wrap: break-word; /* Rompe las palabras largas */
+}
+
+/* Al abrir el sobre */
+.container.abierto .tapa {
+    transform: rotateX(180deg);
+}
+
+.container.abierto .carta {
+    transform: translateY(-10%);
+    opacity: 1;
+}
